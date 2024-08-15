@@ -2,8 +2,12 @@ from tkinter import *
 import os
 
 def submit1(stuName,add,phone):
-    with open("danceData.txt","a") as f:
-        f.write(stuName.get()+" "+add.get()+" "+phone.get()+"\n")
+    # with open("danceData.txt","a") as f:
+    #     f.write(stuName.get()+" "+add.get()+" "+phone.get()+"\n")
+    with open('danceData.csv', 'a', newline='') as f:
+        f1 = csv.writer(f)
+        data_to_append = [stuName.get(),add.get(),phone.get()]
+        f1.writerow(data_to_append)
     stuName.set("")
     add.set("")
     phone.set("")
